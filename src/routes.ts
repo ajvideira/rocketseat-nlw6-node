@@ -24,14 +24,14 @@ const listUserSendComplimentsController =
   new ListUserSendComplimentsController();
 
 router.post('/users', createUserController.handle);
-router.get('/users', listUsersController.handle);
+router.get('/users', ensureAuthenticate, listUsersController.handle);
 router.post(
   '/tags',
   ensureAuthenticate,
   ensureAdmin,
   createTagController.handle
 );
-router.get('/tags', ensureAuthenticate, ensureAdmin, listTagsController.handle);
+router.get('/tags', ensureAuthenticate, listTagsController.handle);
 
 router.post('/login', authenticateUserController.handle);
 router.post(
