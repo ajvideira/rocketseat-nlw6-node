@@ -19,8 +19,10 @@ export class AuthenticateUserService {
     if (!user) {
       throw new Error('Email/Password incorrect');
     }
+    console.log('chegou aqui');
 
-    if (await compare(password, user.password)) {
+    const passwordMatch = await compare(password, user.password);
+    if (!passwordMatch) {
       throw new Error('Email/Password incorrect');
     }
 

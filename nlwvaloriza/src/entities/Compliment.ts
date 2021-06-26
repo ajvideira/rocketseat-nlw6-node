@@ -21,7 +21,7 @@ export class Compliment {
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'user_sender_id' })
-  userSenderr: User;
+  userSender: User;
 
   @Column()
   user_receiver_id: string;
